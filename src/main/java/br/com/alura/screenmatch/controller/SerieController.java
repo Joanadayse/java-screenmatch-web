@@ -43,7 +43,21 @@ private SerieService servico;
     @GetMapping("/{id}/temporadas/todas")
     public List<EpisodiosDTO> obterTodasTemporadas(@PathVariable Long id){
         return servico.obterTodasAsTemporadas(id);
+    }
 
+    @GetMapping("/{id}/temporadas/{numero}")
+    public List<EpisodiosDTO> obterTemporadasPorNumero(@PathVariable Long id, @PathVariable Long numero){
+        return  servico.obterTemporadasPorNumero(id,numero);
+    }
+
+    @GetMapping("/{id}/temporadas/top")
+    public List<EpisodiosDTO> obterTopEpisodios(@PathVariable Long id){
+        return servico.obterTopEpisodios(id);
+    }
+
+    @GetMapping("/categoria/{nomeGenero}")
+    public List<SerieDTO> obterSeriesPorCategoria(@PathVariable String nomeGenero){
+        return servico.obterSeriesPorCategoria(nomeGenero);
     }
 
 }
